@@ -1,5 +1,5 @@
 from django.db import models
-from .helpers import LocationHelpers
+from locations.helpers import LocationHelpers
 import uuid
 
 class Location(models.Model):
