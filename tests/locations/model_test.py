@@ -1,7 +1,7 @@
 import pytest
 from django.core.exceptions import ValidationError
 from locations.models import Location
-from tests.locations.location_factory import LocationFactory
+from tests.locations.factory import LocationFactory
 
 @pytest.mark.django_db
 class TestLocationModel:
@@ -27,4 +27,3 @@ class TestLocationModel:
         with pytest.raises(ValidationError):
             location = LocationFactory.with_invalid_parent()
             location.full_clean()
-
