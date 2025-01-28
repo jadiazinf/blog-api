@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import ItemListCreateView
+from rest_framework.routers import DefaultRouter
+from locations.controller import LocationController
 
-urlpatterns = [
-    path('items/', ItemListCreateView.as_view(), name='item-list-create'),
-]
+router = DefaultRouter()
+router.register(r'locations', LocationController, basename='locations')
+
+urlpatterns = router.urls

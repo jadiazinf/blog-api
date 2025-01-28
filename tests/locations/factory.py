@@ -12,6 +12,10 @@ class LocationFactory(factory.django.DjangoModelFactory):
     type = factory.Iterator(Location.LocationType.values)
     parent = None
 
+    @classmethod
+    def attrs(cls, **kwargs):
+        return factory.build(dict, FACTORY_CLASS=cls, **kwargs)
+
     @factory.post_generation
     def with_parent(obj, create, extracted, **kwargs):
         if extracted:
